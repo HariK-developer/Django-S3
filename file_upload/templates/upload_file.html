@@ -1,0 +1,91 @@
+<!-- upload_file.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
+            width: 400px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            font-size: 16px;
+            color: #34495e;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input[type="file"] {
+            margin: 10px 0 20px;
+            padding: 15px;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            background-color: #ecf0f1;
+            width: 100%;
+            font-size: 14px;
+            color: #2c3e50;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input[type="file"]:focus {
+            border-color: #2980b9;
+        }
+
+        button {
+            padding: 15px 25px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Upload a File</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="id_file">Choose a file:</label>
+            <input type="file" name="file" id="id_file" accept="image/*">
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+</body>
+</html>
